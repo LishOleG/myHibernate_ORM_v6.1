@@ -24,25 +24,16 @@ public class User {
 
 
    @OneToOne (cascade = CascadeType.ALL)
-  // @JoinColumn(name = "id")
    @PrimaryKeyJoinColumn
    private  Car empCar;
 
 
    public User() {}
-   
+
    public User(String firstName, String lastName, String email) {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
-   }
-
-   public Car getEmpCar() {
-      return empCar;
-   }
-
-   public void setEmpCar(Car empCar) {
-      this.empCar = empCar;
    }
 
    public Long getId() {
@@ -77,7 +68,15 @@ public class User {
       this.email = email;
    }
 
-/*
+    public Car getEmpCar() {
+        return empCar;
+    }
+
+    public void setEmpCar(Car empCar) {
+        this.empCar = empCar;
+    }
+
+
    @Override
    public boolean equals(Object o) {
       if (this == o) return true;
@@ -90,7 +89,7 @@ public class User {
    public int hashCode() {
       return Objects.hash(id, firstName, lastName, email, empCar);
    }
-*/
+
 
    @Override
    public String toString() {

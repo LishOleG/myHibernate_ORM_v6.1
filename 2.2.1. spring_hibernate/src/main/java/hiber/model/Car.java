@@ -11,7 +11,7 @@ public class Car implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "model")
@@ -20,14 +20,17 @@ public class Car implements Serializable {
     @Column(name = "series")
     private int series;
 
-    @OneToOne (mappedBy = "empCar")  //(cascade = CascadeType.ALL)
+
+    @MapsId
+    @OneToOne(mappedBy = "empCar")
     @JoinColumn(name = "id")
-    private  User empUser;
+    private User empUser;
 
 
-    public  Car(){}
+    public Car() {
+    }
 
-    public Car (String model, int series, User empUser) {
+    public Car(String model, int series, User empUser) {
         this.model = model;
         this.series = series;
         this.empUser = empUser;
@@ -36,10 +39,10 @@ public class Car implements Serializable {
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
-
 
 
     public String getModel() {
@@ -56,6 +59,14 @@ public class Car implements Serializable {
 
     public void setSeries(int series) {
         this.series = series;
+    }
+
+    public User getEmpUser() {
+        return empUser;
+    }
+
+    public void setEmpUser(User empUser) {
+        this.empUser = empUser;
     }
 
     @Override
@@ -75,13 +86,9 @@ public class Car implements Serializable {
     public String toString() {
 
         return "Auto [" +
-                //"id: " + id +
                 "model: '" + model + '\'' +
                 ", series: " + series +
                 ']';
-
-
-        //return String.format ("Car [ model: %s, series: %d ]", id, model, series);
     }
 
 }
