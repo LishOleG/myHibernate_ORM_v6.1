@@ -14,7 +14,6 @@ public class CarServiceImp implements CarService {
     @Override
     @Transactional
     public void add(Car car) {
-
         carDao.add(car);
     }
 }

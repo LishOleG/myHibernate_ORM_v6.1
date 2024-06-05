@@ -23,9 +23,8 @@ public class Car implements Serializable {
 
     @MapsId
     @OneToOne(mappedBy = "empCar")
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "empCar_id")
     private User empUser;
-
 
     public Car() {
     }
@@ -35,6 +34,7 @@ public class Car implements Serializable {
         this.series = series;
         this.empUser = empUser;
     }
+
 
     public Long getId() {
         return id;
@@ -61,13 +61,14 @@ public class Car implements Serializable {
         this.series = series;
     }
 
-    public User getEmpUser() {
+    public User getUser() {
         return empUser;
     }
 
-    public void setEmpUser(User empUser) {
+    public void setUser(User empUser) {
         this.empUser = empUser;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -86,7 +87,8 @@ public class Car implements Serializable {
     public String toString() {
 
         return "Auto [" +
-                "model: '" + model + '\'' +
+                "id: " + id +
+                ", model: '" + model + '\'' +
                 ", series: " + series +
                 ']';
     }
