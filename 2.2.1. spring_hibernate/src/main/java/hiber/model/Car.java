@@ -6,12 +6,13 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "car")
+@Table(name = "cars")
 public class Car implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "car_id")
     private Long id;
 
     @Column(name = "model")
@@ -20,19 +21,18 @@ public class Car implements Serializable {
     @Column(name = "series")
     private int series;
 
-
+/*
     @MapsId
     @OneToOne(mappedBy = "empCar")
     @JoinColumn(name = "empCar_id")
     private User empUser;
-
+*/
     public Car() {
     }
 
-    public Car(String model, int series, User empUser) {
+    public Car(String model, int series) {
         this.model = model;
         this.series = series;
-        this.empUser = empUser;
     }
 
 
@@ -59,28 +59,6 @@ public class Car implements Serializable {
 
     public void setSeries(int series) {
         this.series = series;
-    }
-
-    public User getUser() {
-        return empUser;
-    }
-
-    public void setUser(User empUser) {
-        this.empUser = empUser;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
-        return series == car.series && Objects.equals(id, car.id) && Objects.equals(model, car.model);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, model, series);
     }
 
     @Override
