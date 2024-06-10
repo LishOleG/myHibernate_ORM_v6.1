@@ -1,7 +1,6 @@
 package hiber.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -30,12 +29,10 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, Car useCar) {
+    public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.useCar = useCar;
-
     }
 
     public Long getId() {
@@ -74,8 +71,9 @@ public class User {
         return useCar;
     }
 
-    public void setCar(Car useCar) {
+    public Car setCar(Car useCar) {
         this.useCar = useCar;
+        return useCar;
     }
 
     @Override

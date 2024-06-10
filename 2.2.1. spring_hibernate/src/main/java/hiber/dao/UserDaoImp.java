@@ -33,9 +33,9 @@ public class UserDaoImp implements UserDao {
     @SuppressWarnings("unchecked")
     public User findByCar(String model, int series) {
         String HQL = "select user from User user where user.useCar.model = :model and user.useCar.series = :series";
-       return sessionFactory.getCurrentSession().createQuery(HQL, User.class)
-        .setParameter("model", model)
-        .setParameter("series", series)
-        .uniqueResult();
+        return sessionFactory.getCurrentSession().createQuery(HQL, User.class)
+                .setParameter("model", model)
+                .setParameter("series", series)
+                .uniqueResult();
     }
 }
