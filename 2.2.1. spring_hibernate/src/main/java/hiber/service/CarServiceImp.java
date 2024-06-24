@@ -30,4 +30,11 @@ public class CarServiceImp implements CarService {
         return carDao.listCars();
     }
 
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Car> getListCars() {
+        return carDao.listCars();
+    }
+
 }

@@ -27,6 +27,13 @@ public class CarDaoImp implements CarDao {
         return query.getResultList();
     }
 
+    @Override
+    public List<Car> getListCars() {
+        return getListCars();
+    }
 
 }
+
+
+
 

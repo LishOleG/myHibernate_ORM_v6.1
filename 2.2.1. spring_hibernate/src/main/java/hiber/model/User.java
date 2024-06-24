@@ -21,8 +21,8 @@ public class User {
     private String email;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "car_id", referencedColumnName = "model")
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "car_id")
     private Car useCar;
 
 
@@ -33,6 +33,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+
     }
 
     public Long getId() {

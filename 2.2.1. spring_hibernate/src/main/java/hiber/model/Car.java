@@ -22,8 +22,8 @@ public class Car implements Serializable {
     private int series;
 
 
-    @OneToOne(mappedBy = "useCar",
-            cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "useCar")
+
     private User carUser;
 
     public Car() {
@@ -32,7 +32,6 @@ public class Car implements Serializable {
     public Car(String model, int series) {
         this.model = model;
         this.series = series;
-
     }
 
 

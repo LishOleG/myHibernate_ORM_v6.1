@@ -9,4 +9,7 @@ public interface CarService {
     void add(Car car);
 
     List<Car> listCars();
+
+
+    List<Car> getListCars();
 }
